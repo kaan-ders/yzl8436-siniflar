@@ -12,9 +12,66 @@ namespace Siniflar
         //field
         public string Tip;
         public int Numara;
-        //private int Boyut;
+
+        private string _sekil;
+        public string Sekil
+        {
+            get { return _sekil; }
+        }
+
+        //public string Sekil { get; set; }
+        private int _boyut;
 
         //propety
+        public int Boyut
+        {
+            get 
+            { 
+                return _boyut; 
+            }
+            set 
+            {
+                if (value < 30)
+                    _boyut = value;
+                else
+                    _boyut = 30;
+
+                if (_boyut < 10)
+                    _sekil = "kare";
+                else
+                    _sekil = "daire";
+            }
+        }
+
+        //public int Sekil;
+        //public int Sekil { get; set; }
+
+        //private int _sekil;
+        //public int Sekil 
+        //{ 
+        //    get { return _sekil; } 
+        //    set { _sekil = value; }
+        //}
+
+
+        //public int Boyut
+        //{
+        //    get;
+        //    set;
+        //}
+
+        public void SetBoyut(int deger)
+        {
+            if (deger < 30)
+                _boyut = deger;
+            else
+                _boyut = 30;
+        }
+
+        public int GetBoyut()
+        {
+            return _boyut;
+        }
 
         //constractor
         public Kart(string tip, int numara)
@@ -41,6 +98,7 @@ namespace Siniflar
 
         private void Doldur()
         {
+            kartlar.Clear();
             string[] kartResimleri = { "Karo", "Kupa", "Sinek", "Maça" };
 
             for (int i = 0; i < kartResimleri.Length; i++)
