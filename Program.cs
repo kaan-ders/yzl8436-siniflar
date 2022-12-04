@@ -1,4 +1,5 @@
-﻿using Siniflar.Kalitim;
+﻿using Siniflar.CokBicimlilik;
+using Siniflar.Kalitim;
 using Siniflar.StaticClass;
 
 namespace Siniflar
@@ -123,6 +124,38 @@ namespace Siniflar
 
             Kare kare1 = new Kare(40);
             Console.WriteLine(kare1.AlanHesapla());
+
+            CevreYaz(dikdortgen1);
+            CevreYaz(kare1);
+
+            //
+            //Sekil sekil = new Sekil();
+            //sekil.AlanHesapla();
+
+            //polymorphism
+            //-----------------------------------------
+
+            Inek inek = new Inek();
+            Koyun koyun = new Koyun();
+            Keci keci = new Keci();
+
+            Manda manda = new Manda();
+
+            SesYaz(inek);
+            SesYaz(koyun);
+            SesYaz(keci);
+
+            SesYaz(manda);
+        }
+
+        static void CevreYaz(Sekil sekil)
+        {
+            Console.WriteLine(sekil.Cevre);
+        }
+
+        static void SesYaz(Hayvan hayvan)
+        {
+            Console.WriteLine(hayvan.SesCikar());
         }
     }
 }
